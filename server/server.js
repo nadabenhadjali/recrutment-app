@@ -25,11 +25,14 @@ db.mongoose
 app.use(
   cors({
     credentials: true,
-    origin:{ "http://localhost:3000"
-    :
-     "http://localhost:3006"},
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3006",
+      "http://localhost:3007",
+    ],
   })
 );
+
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded

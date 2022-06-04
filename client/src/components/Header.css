@@ -1,11 +1,19 @@
 body .bbbootstrap {
-    background-image: url(https://eldercarenc.net/wp-content/uploads/2019/05/Careers_HEader_02.png) !important;
+    background-image: url(C:/Users/NADA/Desktop/app/client/src/images/HEDARJOB.jpg);
     background-size: cover;
-    padding: 200px 0 30px 0;
+    object-fit: contain;
+    padding: 180px 0 120px 0;
 }
 body .bbootstrap {
     margin-top: 50px;
     padding: 50px 0 30px 0;
+}
+body .imgbootstrap
+{
+    background-image: url(C:/Users/NADA/Desktop/app/client/src/images/burst-kUqqaRjJuw0-unsplash.jpg);
+    background-size: cover;
+    object-fit: contain;
+    padding: 200px 0 150px 0;
 }
 
 .bbbootstrap {
@@ -86,6 +94,8 @@ body .Button, body .button {
 input[type="submit"] {
     -webkit-appearance: button;
     cursor: pointer;
+    position:absolute;
+    left:30%
 }
 
 .Button, .Button:hover, .Button:focus, .Button:active {

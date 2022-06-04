@@ -2,9 +2,9 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button,Card,Container } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import Input from '../Components/Input';
+import * as MdIcons from "react-icons/md";
 
 function UpdateOffer(props) {
 
@@ -12,6 +12,7 @@ function UpdateOffer(props) {
     const { id } = useParams();
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+  const Type = ["CDI", "CDD", "Contrat à temps partiel"];
 
     const onChangeHandler = (e) => {
       setForm({
@@ -38,49 +39,70 @@ function UpdateOffer(props) {
         });
     }, []);
   return (
-    <div className="container mt-4 col-12 col-lg-4">
-      <form onSubmit={onSubmitHandler}>
-        <Input
-          label="intitulé Du Poste"
-          type="text"
-          name="intituleDuPoste"
-          onChangeHandler={onChangeHandler}
-          value={form.intituleDuPoste}
-        />
-        <Input
-          label="description"
-          type="text"
-          name="description"
-          onChangeHandler={onChangeHandler}
-          value={form.description}
-        />
-        <Input
-          label="experience Requise"
-          type="text"
-          name="experienceRequise"
-          onChangeHandler={onChangeHandler}
-          value={form.experienceRequise}
-        />
-        <Input
-          label="Type du Contrat"
-          type="text"
-          name="TypeContrat"
-          onChangeHandler={onChangeHandler}
-          value={form.TypeContrat}
-        />
-        <Input
-          label="durée du Contrat"
-          type="text"
-          name="duréeContrat"
-          onChangeHandler={onChangeHandler}
-          value={form.duréeContrat}
-        />
+    <Container style={{ alignItems: "center", marginTop: "65px" }}>
+      <MdIcons.MdKeyboardBackspace
+        onClick={() => navigate(-1)}
+        style={{ fontSize: "50px", position: "relative", right: "47%" }}
+        className="gap__actions"
+      />
+      <Card body>
+        <h2>Modifier offre</h2>
 
-        <Button variant="dark" type="submit">
-          modifier offre
-        </Button>
-      </form>
-    </div>
+        <form onSubmit={onSubmitHandler}>
+          <label style={{ marginTop: "20px" }}>intitulé du poste:</label>
+          <input
+            className="form-control"
+            placeholder="intitulé du poste"
+            label="intitulé Du Poste"
+            type="text"
+            name="intituleDuPoste"
+            onChangeHandler={onChangeHandler}
+            value={form.intituleDuPoste}
+          />
+          <label style={{ marginTop: "20px" }}>description:</label>
+
+          <textarea
+            className="form-control"
+            placeholder="description"
+            label="description"
+            type="text"
+            name="description"
+            onChangeHandler={onChangeHandler}
+            value={form.description}
+          />
+          <label style={{ marginTop: "20px" }}>experience requise:</label>
+
+          <input
+            className="form-control"
+            placeholder="experience requise"
+            label="experience Requise"
+            type="text"
+            name="experienceRequise"
+            onChangeHandler={onChangeHandler}
+            value={form.experienceRequise}
+          />
+          <div style={{ marginTop: "20px" }}>
+            <label>type contrat:</label>
+
+            <select
+              onChangeHandler={onChangeHandler}
+              value={form.TypeContrat}
+              class="custom-select"
+              id="inputGroupSelect01"
+            >
+              <option selected>Type Contrat...</option>
+              {Type.map((c) => (
+                <option value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+
+          <Button variant="dark" type="submit" style={{ marginTop: "30px" }}>
+            Modifier{" "}
+          </Button>
+        </form>
+      </Card>
+    </Container>
   );
 }
 

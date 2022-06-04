@@ -144,6 +144,22 @@ exports.getAllSubjects=  (req, res) => {
          });
        });
 }
+//getSubjectById
+exports.getSubjectById = async (req, res) => {
+  try {
+    const _id = req.params.id;
+
+    const subject = await Subject.findOne({ _id });
+    if (!subject) {
+      return res.status(404).json({});
+    } else {
+      return res.status(200).json(subject);
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error });
+  }
+};
+
 
 //get all questions +from a specific subject
 exports.getQstsBySubject = async(req, res) => {

@@ -9,10 +9,7 @@ function Job(props) {
   const langages = props.langages;
   const utils = props.utils;
   const lang = langages.map((langage) => (
-    <Badge
-      bg="secondary"
-      style={{ marginLeft: "5px", }}
-    >
+    <Badge bg="secondary" style={{ marginLeft: "5px" }}>
       {langage}
     </Badge>
   ));
@@ -23,8 +20,8 @@ function Job(props) {
   ));
   console.log(role);
   return (
-    <Card className="mb-3">
-      <Card.Body >
+    <div className="shadow p-3 mb-5 bg-white rounded">
+      <Card.Body>
         <Card.Title>
           {post} {role}
         </Card.Title>
@@ -32,17 +29,17 @@ function Job(props) {
           {lang}
 
           {tools}
-            <Link to={`/offres/${props.Id}`} className="text-white">
-              <Button
-                variant="outline-secondary"
-                style={{ marginLeft: "935px" }}
-              >
-                Voir Plus
-              </Button>
-            </Link>
+          <Link to={`/offres/${props.Id}`} className="text-white">
+            <button
+              className="btn"
+              style={{ position: "absolute", left: "80%" }}
+            >
+              <span> Voir Plus</span>
+            </button>
+          </Link>
         </Card.Text>
       </Card.Body>
-    </Card>
+    </div>
   );
 }
 export default Job;

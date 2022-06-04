@@ -26,32 +26,34 @@ function Quiz(props) {
         alignContent: "center",
       }}
     >
-      
       <Button
         variant="dark"
-        style={{ marginBottom: "25px", marginLeft: "1025px" }}
+        style={{ marginBottom: "25px", position: "relative", left: "45%" }}
         onClick={handleButton}
       >
         Ajouter
       </Button>
       <Card body>
         <div>
-          <h1 >Quizs</h1>
+          <h1>Quizs</h1>
           <Table responsive style={{ marginTop: "30px" }}>
             <thead>
               <tr>
-                <th>name</th>
-                <th>instructions</th>
-                <th>questions</th>
-                <th></th>
+                <th scope="col">name</th>
+                <th scope="col">instructions</th>
+                <th scope="col">questions</th>
+                <th scope="col">date expiration</th>
+
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              {quizs.map(({ name, instructions, questions, _id }) => (
+              {quizs.map(({ name, instructions, questions, expiry,_id }) => (
                 <RowQuizs
                   name={name}
                   instructions={instructions}
                   questions={questions}
+                  expiry={expiry}
                   Id={_id}
                 />
               ))}

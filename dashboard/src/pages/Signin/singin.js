@@ -30,7 +30,7 @@ const Signin = () => {
       const url = "http://localhost:8000/dashboard/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      window.location = "/";
+      window.location = "/offres";
     } catch (error) {
       if (
         error.response &&

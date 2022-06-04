@@ -4,7 +4,7 @@ import Input from "../Components/Input";
 import RowSubjects from "../Components/RowSubjects";
 import axios from "axios";
 import { useState } from "react";
-import Alert from "../Components/alert";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Table, Card, Container,Modal} from "react-bootstrap";
 axios.defaults.withCredentials = true;
 
@@ -14,6 +14,8 @@ function Subjects(props) {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
 
   const onChangeHandler = (e) => {
     setForm({
@@ -54,11 +56,21 @@ function Subjects(props) {
     axios.get("http://localhost:8000/dashboard/subjects").then((res) => {
       setSubjects(res.data);
     });
-  }, []);
+  });
   return (
     <div>
-      <Container style={{ alignItems: "center",alignContent:"center", marginTop: "65px" }}>
-        <Button variant="dark" style={{ marginBottom: "25px" ,marginLeft:"1025px"}}>
+      <Container
+        style={{
+          alignItems: "center",
+          alignContent: "center",
+          marginTop: "65px",
+        }}
+      >
+        <Button
+          variant="dark"
+          style={{ marginBottom: "25px", position: "relative", left: "40%" }}
+          onClick={() => setShow(true)}
+        >
           Ajouter
         </Button>
 
@@ -81,24 +93,30 @@ function Subjects(props) {
           </div>
         </Card>
       </Container>
-      <Modal>
-        <Alert message={message} show={show} />
-
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ajouter sujet</Modal.Title>
+        </Modal.Header>
         <div>
           <form onSubmit={onSubmitHandler}>
-            <div>
-              <Input
-                label="sujet"
-                type="text"
+            <div className="form-group col-md-auto">
+                <Input
+                  class="form-control "
+                  type="text"
                 name="name"
-                onChangeHandler={onChangeHandler}
-                errors={errors.message}
-              />
-
-              <Button variant="dark" type="submit">
-                Ajouter
-              </Button>
+                placeholder="nom du sujet"
+                  onChangeHandler={onChangeHandler}
+                  errors={errors.message}
+                />
             </div>
+
+            <Button
+              variant="dark"
+              type="submit"
+              style={{ position: "relative", left: "40%", marginBottom: "10%" }}
+            >
+              Ajouter
+            </Button>
           </form>
         </div>
       </Modal>

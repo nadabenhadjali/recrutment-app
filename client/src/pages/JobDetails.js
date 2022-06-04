@@ -18,6 +18,7 @@ function JobDetails(props) {
     }, []);
   return (
     <div className="single">
+
       <SingleJob />
     </div>
   );

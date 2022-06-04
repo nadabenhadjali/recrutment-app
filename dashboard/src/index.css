@@ -15,7 +15,5 @@ code {
 }
 
 .gap__actions{
-        display: grid;
-        row-gap: 10px;
         cursor: pointer;
         }

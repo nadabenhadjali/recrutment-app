@@ -1,41 +1,38 @@
-.v-divider {
-  position: absolute;
-  left: 50%;
-  content: "";
-  z-index: 9;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  width: 0;
-  height: calc(36% - 1rem);
-  margin-left: -30px;
-}
-
 .Post {
-  padding: -30px;
   font-family: sans-serif;
-  font-size: 5rem;
-  margin-left: -60px;
-  margin-top: -100px;
+  font-size: 2rem;
 
   color: rgb(0, 54, 105);
 }
 
 .Postuler {
-  margin-left: 00px;
   background-color: white;
-  margin-top: 0PX;
 
-  padding: 10px   40px;
   cursor: pointer;
-  
 }
 
-
-.desc{
-   
-  padding: 0px;
+.desc {
+  padding: 20px;
   font-family: sans-serif;
-  font-size: 2rem;
-color:rgb(0, 54, 105);
-
+  font-size: 1rem;
+  color: rgb(60, 58, 58);
+}
+.title {
+  font-size: large;
+  color: rgb(0, 54, 105);
+}
+.btn-bd-primary {
+background: rgb(52, 183, 248) ;
+   border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ height:40px;
+   width:100px;
+   border-radius: 30px;
+}
+.btn-bd-primary:hover {
+  box-shadow: 0 8px 12px 0 rgba(62, 62, 62, 0.24), 0 5px 20px 0 rgba(77, 77, 77, 0.19);
 }

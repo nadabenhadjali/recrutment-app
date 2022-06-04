@@ -6,15 +6,13 @@ import Contactus from './pages/contactus';
 import Offres from './pages/offres';
 import JobDetails from './pages/JobDetails';
 
-
 function App() {
   
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        
-       
+
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/contactus" element={<Contactus />} />

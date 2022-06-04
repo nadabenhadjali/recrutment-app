@@ -16,7 +16,6 @@ const formInputs = [
     id: "email",
     type: "email",
     label: "address Email",
-    placeholder: "you@example.com",
   },
   {
     id: "message",

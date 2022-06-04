@@ -11,7 +11,7 @@ function RowOffers(props) {
         axios
           .delete(`http://localhost:8000/dashboard/offres/${id__}`)
           .then((res) => {
-            setMessage(res.data.message);
+            setMessage("vous-êtes sûr ?");
             setShow(true);
             setTimeout(() => {
               setShow(false);
@@ -25,7 +25,6 @@ function RowOffers(props) {
       <td>{props.description}</td>
       <td>{props.experienceRequise}</td>
       <td>{props.TypeContrat}</td>
-      <td>{props.duréeContrat}</td>
 
       <td className="gap__actions">
         <span>
@@ -38,7 +37,7 @@ function RowOffers(props) {
           </Link>
         </span>
 
-        <span onClick={() => OnDelete(props.Id)}>
+        <span onClick={() => OnDelete(props.Id)} className="gap__actions">
           <li className="fas fa-trash-alt"></li>
         </span>
       </td>

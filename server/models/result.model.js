@@ -7,15 +7,19 @@ module.exports = (mongoose) => {
           ref: "Quiz",
           required: true,
         },
+      
         answers: {
           type: Array,
+        },
+        name: {
+          type: String,
           required: true,
         },
-        candidatId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "candidat",
+        email: {
+          type: String,
           required: true,
         },
+      
       },
       {
         timestamps: true,

@@ -32,7 +32,8 @@ router.post("/quizs/:id",  quiz.addQuestionToQuiz);
 // get all quizs
 router.get("/quizs", quiz.getAll);
 //get Questions by Quiz id
-router.get("/quizs/:id/questions", quiz.getQuestionssByQuizId);
+router.get("/quizs/:id/questions", quiz.getQuizQuestions);
+
 
 // create one quiz
 router.post("/quizs",  quiz.add);
@@ -43,9 +44,10 @@ router.delete("/quizs/:id",  quiz.deleteQuiz);
 //send quiz link
 router.post("/quizs/:id",  email.sendQuiz);
 //get result
-router.get("/results/:id",  quiz.getResult);
+router.get("/result",  quiz.getResult);
 // get quiz qustions
-router.get("/quizs/:id/questions",  quiz.getQuizQuestions);
+router.get("/quizs/:id/questions", quiz.getQuizQuestions);
+
 //add question
 router.post("/questions",question.createQst);
 // get one quiz question
@@ -64,7 +66,10 @@ router.get("/subjects/:id/questions",  question.getQstsBySubject);
 router.post("/subject", question.createSubject);
 
 //getAllSubjects
-router.get("/subjects",  question.getAllSubjects);
+router.get("/subjects", question.getAllSubjects);
+//getSubjectById
+router.get("/subjects/:id", question.getSubjectById);
+
 //delete subject by id 
 router.delete("/subjects/:id", question.deleteSubject);
 
@@ -75,8 +80,8 @@ router.get("/candidats/:id",  candidat.findOne);
 router.delete("/candidats/:id",  candidat.delete);
 router.get(
   "/offres/:id/candidats",
-  requireSignin,
   candidat.getCandidatsByOffre
 );
+router.get("/candidats/:id/CV", candidat.getCv);
 
 module.exports = router;

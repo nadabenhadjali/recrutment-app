@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Job from "../components/Job";
+import "../components/SearchBar.css";
 import "../components/Header.css";
-import { Container, FormControl, InputGroup } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 function Offers(props) {
   const [offers, setOffers] = useState([]);
   const [langages, setLangages] = useState([]);
@@ -19,33 +20,45 @@ function Offers(props) {
   });
   return (
     <div>
-      <div class="bbbootstrap">
-        <div class="container">
-          <form>
-            <span
-              role="status"
-              aria-live="polite"
-              class="ui-helper-hidden-accessible"
-            ></span>
-
-            <InputGroup className="col-6">
-              <FormControl
-                placeholder="rechercher une offre"
-                aria-label="Search"
-                id="Form_Search"
-                class="InputBox "
-                aria-describedby="basic-addon2"
-                onChange={(event) => setQuery(event.target.value)}
-              />
-            </InputGroup>
-          </form>
+      <div className="bbbootstrap"></div>
+      <div className="container">
+        <div className="row" style={{ position: "relative", left: "65%" }}>
+          <div className="col-md-4 col-md-offset-3">
+            <form action="" className="search-form">
+              <div className="form-group has-feedback">
+                <label for="search" class="sr-only">
+                  Rechercher
+                </label>
+                <input
+                  type="text"
+                  onChange={(event) => setQuery(event.target.value)}
+                  className="form-control"
+                  name="search"
+                  id="search"
+                  placeholder="Rechercher"
+                />
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+
       <div
         className="container"
         style={{
           alignItems: "center",
-          backgroundColor: "rgb(0, 54, 105)",
         }}
       >
         {offers

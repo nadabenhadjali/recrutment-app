@@ -6,20 +6,13 @@ import * as RiIcons from "react-icons/ri";
 import * as GrIcons from "react-icons/gr";
 
 export const SidebarData = [
-  {
-    title: "Home",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-  },
+ 
 
   {
     title: "Offres",
     path: "/offres",
     icon: <Mdcons.MdWork />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+   
 
     subNav: [
    
@@ -30,8 +23,7 @@ export const SidebarData = [
     title: "Quizs",
     path: "/Quizs",
     icon: <Mdcons.MdQuiz />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+    
 
     subNav: [
     

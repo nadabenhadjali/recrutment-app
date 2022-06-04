@@ -20,6 +20,8 @@ module.exports = (app) => {
   router.post("/offres/:id/postuler", upload.single("photo"), candidat.postuler);
   router.post("/quizs/:id", email.sendQuiz);
   router.post("/submitResult", quiz.submitQuiz);
+  router.post("/quizs/:id/takeQuiz", quiz.takeQuiz);
+
   router.post("/contactUs", email.contactUs);
 
 

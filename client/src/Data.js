@@ -11,10 +11,5 @@ export const sliderItems = [
 
     bg: "fcf1ed",
   },
-  {
-    id: 3,
-    img: "https://media-exp1.licdn.com/dms/image/C561BAQHp3jpwVMYq9Q/company-background_10000/0/1561536349646?e=1654034400&v=beta&t=X9v81uNuELWAxrRncpiZSELvgQobeKhb8VwRh3miTEc",
 
-    bg: "fbf0f4",
-  },
 ];

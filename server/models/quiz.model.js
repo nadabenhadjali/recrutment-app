@@ -4,33 +4,34 @@ module.exports = (mongoose) => {
       name: {
         type: String,
         required: true,
-        unique: true,
       },
-
       instructions: {
         type: String,
         required: true,
       },
 
-      isEnabled: {
-        type: Boolean,
-        default: true,
-      },
-      questions: [
-        {
-          questionId: {
-            type: String,
+      questions: [{
+        
+        questionId: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Question",
           },
-        },
+        ],
+      }
+        
       ],
+      expiry: {
+        type: Date,
+        required: true,
+      },
 
-      results: { type: Array, default: [] },
+      time: {
+        type: String,
+        required: true,
+      },
     },
-
-    {
-      timestamps: true,
-    }
+    { timestamps: true }
   );
 
   const Quiz = mongoose.model("Quiz", quizSchema);

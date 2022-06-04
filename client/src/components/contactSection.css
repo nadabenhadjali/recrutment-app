@@ -13,10 +13,10 @@
     width: 80vw;
     height: 475px;
     margin: 0 auto;
-    top: var(--offset-height);
+    top: offset-height;
     left: 50%;
     margin-left: -40vw;
-    margin-bottom: var(--offset-height);
+    margin-bottom: offset-height;
     position: relative;
     border-radius: 5px;
     overflow: hidden;

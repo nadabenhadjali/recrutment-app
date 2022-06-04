@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import RowOffers from "../../Components/RowOffers";
 import { Container, Table, Card, Button } from "react-bootstrap";
-
+import './CheckBox.css'
 axios.defaults.withCredentials = true;
 
 function Offers(props) {
@@ -26,13 +26,13 @@ function Offers(props) {
     <Container style={{ alignItems: "center", marginTop: "30px" }}>
       <Button
         variant="dark"
-        style={{ marginBottom: "25px", marginLeft: "1025px" }}
+        style={{ marginBottom: "25px", position: "relative", left: "45%" }}
         onClick={handleButton}
       >
         Ajouter
       </Button>
+
       <Card body>
-        <div>
           <h1>Liste des offres</h1>
 
           <Table responsive style={{ marginTop: "30px" }}>
@@ -42,19 +42,17 @@ function Offers(props) {
                 <th scope="col">description</th>
                 <th scope="col">experience requise</th>
                 <th scope="col">type du contrat</th>
-                <th scope="col">durée du contrat</th>
 
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody >
+            <tbody>
               {offers.map(
                 ({
                   intituleDuPoste,
                   description,
                   experienceRequise,
                   TypeContrat,
-                  duréeContrat,
                   id,
                 }) => (
                   <RowOffers
@@ -62,15 +60,13 @@ function Offers(props) {
                     description={description}
                     experienceRequise={experienceRequise}
                     TypeContrat={TypeContrat}
-                    duréeContrat={duréeContrat}
                     Id={id}
                   />
                 )
               )}
             </tbody>
           </Table>
-        </div>
-      </Card>
+        </Card>
     </Container>
   );
 }

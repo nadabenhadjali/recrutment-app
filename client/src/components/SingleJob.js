@@ -1,15 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import {
   Badge,
   Button,
-  Col,
+  Card,
   Container,
   Form,
   Modal,
   Row,
-  Table,
 } from "react-bootstrap";
 import "./SingleJob.css";
 
@@ -54,7 +53,6 @@ export default function SingleJob(props) {
       .catch((err) => {
         console.log(err);
         alert("!!");
-
       });
     setShow(false);
   };
@@ -69,24 +67,17 @@ export default function SingleJob(props) {
 
   return (
     <div>
-      <div class="bbootstrap">
-        <div class="container">
-          <Button
-            style={{ marginLeft: "950px", marginTop: "-50px" }}
-            className="Postuler"
-            variant="outline-info"
-            onClick={handleShow}
-          >
-            postuler
-          </Button>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Postuler</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form onSubmit={handleSubmit} encType="multipart/form-data">
+      <div class="container">
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Postuler</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={handleSubmit} encType="multipart/form-data">
+              <Container fluid>
                 <div className="form-group">
                   <input
+                    class="form-control"
                     type="text"
                     placeholder="nom"
                     name="nom"
@@ -96,6 +87,7 @@ export default function SingleJob(props) {
                 </div>
                 <div className="form-group">
                   <input
+                    class="form-control"
                     type="text"
                     style={{ margintop: "50px" }}
                     placeholder="prenom"
@@ -106,6 +98,7 @@ export default function SingleJob(props) {
                 </div>
                 <div className="form-group">
                   <input
+                    class="form-control"
                     type="text"
                     placeholder="email"
                     name="email"
@@ -115,80 +108,56 @@ export default function SingleJob(props) {
                 </div>
                 <div className="form-group">
                   <input
+                    class="form-control"
                     type="file"
-                    accept=".png, .jpg, .jpeg"
+                    accept=".pdf"
                     name="photo"
                     onChange={handlePhoto}
                   />
                 </div>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleSubmit}>
-                envoyer
-              </Button>
-            </Modal.Footer>
-          </Modal>
+              </Container>
+            </Form>
+          </Modal.Body>
 
-          <div className="Post">
-            {offre.intituleDuPoste} {offre.role}
-          </div>
-        </div>
+          <Modal.Footer>
+            <button className="btn-bd-primary" onClick={handleSubmit}>
+              envoyer
+            </button>
+          </Modal.Footer>
+        </Modal>
       </div>
-      <Container bordered >
-        <Container
-          style={{
-            marginTop: "0px",
-            backgroundColor: "rgba(206, 223, 241, 0.25)",
-          }}
-        >
-          <Row>
-            <Col >
-              <div className="desc" style={{ marginBottom: "10px" }}>
-                type:
-              </div>
+      <div className="bbbootstrap"></div>
+
+      <Container Bordered>
+        <Card>
+          <Card.Header>
+            <div className="Post">{offre.intituleDuPoste}</div>
+            <button
+              style={{
+                position: "absolute",
+                left: "88%",
+                marginTop: "-45px",
+              }}
+              className="btn-bd-primary"
+              onClick={handleShow}
+            >
+              postuler
+            </button>
+          </Card.Header>
+          <Card.Body className="desc">
+            <Card.Title>
+              <div className="title"> description</div>
+            </Card.Title>
+            <Card.Text>
+              <div>{offre.description}</div>
+              <div className="title">type de contrat:</div>
 
               <div>{offre.TypeContrat}</div>
-            </Col>
-            <div className="v-divider"></div>
-
-            <Col>
-              <div className="desc" style={{ marginBottom: "10px" }}>
-                technologies:
-              </div>
-              {langages.map((l) => (
-                <Badge bg="secondary">{l}</Badge>
-              ))}
-            </Col>
-          </Row>
-          <hr className="mt-5 mb-5" />
-
-          <Row>
-            <Col >
-              <div className="desc" style={{ marginBottom: "10px" }}>
-                experience:
-              </div>
+              <div className="title">Niveau d'expérience:</div>
               <div>{offre.experienceRequise}</div>
-            </Col>
-
-            <Col>
-              <div className="desc" style={{ marginBottom: "10px" }}>
-                utils:
-              </div>
-              <div>
-                {utils.map((l) => (
-                  <Badge bg="secondary">{l}</Badge>
-                ))}
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        <Container style={{ marginTop: "80px", marginBottom: "100px" }}>
-          <div style={{ marginBottom: "30px" }} className="desc">
-            description
-          </div>
-          {offre.description}
-        </Container>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </Container>
     </div>
   );
